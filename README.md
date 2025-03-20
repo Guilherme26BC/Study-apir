@@ -8,6 +8,16 @@ API Java para estudo de Spring boot
 mvn clean package
 ```
 
+*Configuração do Swagger
+
+    - https://springdoc.org/properties
+
+- application.properties
+
+```
+springdoc.swagger-ui.path=/
+server.port=9000
+```
 
 ## Navegação
 
@@ -23,4 +33,5 @@ mvn spring-boot:run
 
 ## Referências
 -   https://springdoc.org/
+- 
 
