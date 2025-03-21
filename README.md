@@ -1,6 +1,27 @@
 # Study APIr
 API Java para estudo de Spring boot
 
+## Client DataBase
+
+## Docker
+
+120.0.0.1 = localhost
+```
+docker pull ubuntu
+docker images
+docker pull debian
+docker run ubuntu
+docker run -it ubuntu
+docker ps -a
+docker ps
+docker rm f4d759ee0b78
+```
+
+* Repositório Docker Hub
+
+```
+hub.docker.com
+```
 ## Instalação
 
 - Limpar e criar a pasta _/target_
