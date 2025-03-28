@@ -51,4 +51,5 @@ public class ProductService {
     public boolean deleteProduct(Long id){
         return products.removeIf(p -> p.getId().equals(id));
     }
+
 }
