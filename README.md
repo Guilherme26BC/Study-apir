@@ -3,6 +3,8 @@ API Java para estudo de Spring boot
 
 ## Client DataBase
 
+## MER
+![Imagem_MER](assets/images/img.png)
 ## Docker
 
 120.0.0.1 = localhost
