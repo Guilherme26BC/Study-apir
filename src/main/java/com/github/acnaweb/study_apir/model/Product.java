@@ -1,6 +1,8 @@
 package com.github.acnaweb.study_apir.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
@@ -8,14 +10,13 @@ import java.math.BigDecimal;
 @Entity
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private BigDecimal valor;
 
 
-    public Product() {
 
-    }
     public Long getId() {
         return id;
     }
