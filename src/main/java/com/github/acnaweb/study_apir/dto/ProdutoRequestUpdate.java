@@ -1,13 +1,13 @@
 package com.github.acnaweb.study_apir.dto;
 
-import com.github.acnaweb.study_apir.model.Product;
+import com.github.acnaweb.study_apir.model.Produtos;
 
 import java.math.BigDecimal;
 
-public class ProductRequestUpdate {
+public class ProdutoRequestUpdate {
     private BigDecimal valor;
 
-    public Product toModel(Product p){
+    public Produtos toModel(Produtos p){
         p.setValor(this.getValor());
         return p;
     }

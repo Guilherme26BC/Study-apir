@@ -3,8 +3,7 @@
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.github.acnaweb.study_apir.dto.ProductResponse;
-import org.apache.catalina.connector.Response;
+import com.github.acnaweb.study_apir.dto.ProdutoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,27 +15,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.acnaweb.study_apir.dto.ProductRequestCreate;
-import com.github.acnaweb.study_apir.dto.ProductRequestUpdate;
-import com.github.acnaweb.study_apir.model.Product;
-import com.github.acnaweb.study_apir.service.ProductService;
+import com.github.acnaweb.study_apir.dto.ProdutoRequestCreate;
+import com.github.acnaweb.study_apir.dto.ProdutoRequestUpdate;
+import com.github.acnaweb.study_apir.service.ProdutoService;
 
 @RestController
 @RequestMapping("produtos")
-public class ControllerProduct {
+public class ControllerProduto {
     
     @Autowired
-    private ProductService productService;
+    private ProdutoService produtoService;
 
     @PostMapping
-    public ResponseEntity<ProductResponse> create(@RequestBody ProductRequestCreate dto) {
+    public ResponseEntity<ProdutoResponse> criar(@RequestBody ProdutoRequestCreate dto) {
          return ResponseEntity.status(201).body(
-                 new ProductResponse().toDto(productService.createProduct(dto)));
+                 new ProdutoResponse().toDto(produtoService.criarProduto(dto)));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if(productService.deleteProduct(id)){
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        if(produtoService.deletarProduto(id)){
             return ResponseEntity.status(204).build();
         }else{
             return ResponseEntity.notFound().build();
@@ -46,13 +44,13 @@ public class ControllerProduct {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @RequestBody ProductRequestUpdate dto) {
-            return productService.updateProduct(id,dto)
-            .map(productUpdated->new ProductResponse().toDto(productUpdated))
+    public ResponseEntity<ProdutoResponse> atualizar(@PathVariable Long id, @RequestBody ProdutoRequestUpdate dto) {
+            return produtoService.atualizarProduto(id,dto)
+            .map(productUpdated->new ProdutoResponse().toDto(productUpdated))
             .map(ResponseEntity ::ok)
             .orElse(ResponseEntity.notFound().build());
 
-        // Optional<Product> productUpdated = productService.updateProduct(id,product);
+        // Optional<Product> productUpdated = produtoService.updateProduct(id,product);
         // if(productUpdated.isPresent()){
         //     return ResponseEntity.ok(productUpdated.get());        
         // }
@@ -60,16 +58,16 @@ public class ControllerProduct {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> findById(@PathVariable Long id) {
-        return productService.getProductById(id)
-        .map(productGet-> new ProductResponse().toDto(productGet))
+    public ResponseEntity<ProdutoResponse> buscarPorId(@PathVariable Long id) {
+        return produtoService.buscarPorId(id)
+        .map(productGet-> new ProdutoResponse().toDto(productGet))
         .map(ResponseEntity:: ok)
         .orElse(ResponseEntity.notFound().build());
     }
     @GetMapping
-    public ResponseEntity<List<ProductResponse>> findByAll() {
-       List<ProductResponse> response= productService.getAll().stream()
-                .map(p-> new ProductResponse().toDto(p))
+    public ResponseEntity<List<ProdutoResponse>> buscarTodos() {
+       List<ProdutoResponse> response= produtoService.buscarTodos().stream()
+                .map(p-> new ProdutoResponse().toDto(p))
                 .collect(Collectors.toList());
        return ResponseEntity.ok(response);
     }

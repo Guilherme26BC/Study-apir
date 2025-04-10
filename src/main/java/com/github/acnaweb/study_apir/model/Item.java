@@ -12,12 +12,12 @@ public class Item {
    private Long item_id;
 
    @ManyToOne
-   private Order order;
+   private Pedido pedido;
    @ManyToOne
-   private Product product;
+   private Produtos produtos;
 
-   private int quantity;
-   private BigDecimal value;
+   private int quantidade;
+   private BigDecimal valor;
 
    public Long getItem_id() {
       return item_id;
@@ -27,35 +27,35 @@ public class Item {
       this.item_id = item_id;
    }
 
-   public Order getOrder() {
-      return order;
+   public Pedido getOrder() {
+      return pedido;
    }
 
-   public void setOrder(Order order) {
-      this.order = order;
+   public void setOrder(Pedido pedido) {
+      this.pedido = pedido;
    }
 
-   public Product getProduct() {
-      return product;
+   public Produtos getProduct() {
+      return produtos;
    }
 
-   public void setProduct(Product product) {
-      this.product = product;
+   public void setProduct(Produtos produtos) {
+      this.produtos = produtos;
    }
 
-   public int getQuantity() {
-      return quantity;
+   public int getQuantidade() {
+      return quantidade;
    }
 
-   public void setQuantity(int quantity) {
-      this.quantity = quantity;
+   public void setQuantidade(int quantidade) {
+      this.quantidade = quantidade;
    }
 
-   public BigDecimal getValue() {
-      return value;
+   public BigDecimal getValor() {
+      return valor;
    }
 
-   public void setValue(BigDecimal value) {
-      this.value = value;
+   public void setValor(BigDecimal valor) {
+      this.valor = valor;
    }
 }

@@ -1,11 +1,11 @@
 package com.github.acnaweb.study_apir.dto;
 
-import com.github.acnaweb.study_apir.model.Order;
+import com.github.acnaweb.study_apir.model.Pedido;
 
-public class OrderRequestUpdate {
+public class PedidoRequestUpdate {
     private String status;
 
-    public Order toModel(Order o){
+    public Pedido toModel(Pedido o){
         o.setStatus(this.getStatus());
         return o;
     }

@@ -1,18 +1,18 @@
 package com.github.acnaweb.study_apir.dto;
 
-import com.github.acnaweb.study_apir.model.Product;
+import com.github.acnaweb.study_apir.model.Produtos;
 
 import java.math.BigDecimal;
 
-public class ProductResponse {
+public class ProdutoResponse {
     private Long id;
     private String nome;
     private BigDecimal valor;
 
-    public ProductResponse toDto(Product product){
-        this.setId(product.getId());
-        this.setNome(product.getNome());
-        this.setValor(product.getValor());
+    public ProdutoResponse toDto(Produtos produtos){
+        this.setId(produtos.getId());
+        this.setNome(produtos.getNome());
+        this.setValor(produtos.getValor());
         return this;
     }
 

@@ -3,8 +3,7 @@ package com.github.acnaweb.study_apir.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Order {
-
+public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -1,12 +1,12 @@
 package com.github.acnaweb.study_apir.dto;
-import com.github.acnaweb.study_apir.model.Order;
-public class OrderResponse {
+import com.github.acnaweb.study_apir.model.Pedido;
+public class PedidoResponse {
     private Long id;
     private String status;
 
-    public OrderResponse toDto(Order order){
-        this.setId(order.getId());
-        this.setStatus(order.getStatus());
+    public PedidoResponse toDto(Pedido pedido){
+        this.setId(pedido.getId());
+        this.setStatus(pedido.getStatus());
         return this;
     }
 
