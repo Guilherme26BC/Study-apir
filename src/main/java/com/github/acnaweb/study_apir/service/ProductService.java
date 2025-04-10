@@ -1,8 +1,4 @@
 package com.github.acnaweb.study_apir.service;
-
-import java.math.BigDecimal;
-import java.net.PortUnreachableException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,16 +20,13 @@ public class ProductService {
     public Optional<Product> getProductById(Long id){
         return productRepository.findById(id);
     }
-
     public List<Product> getAll(){
     return productRepository.findAll();
     }
-    
     public Optional<Product> updateProduct(Long id, ProductRequestUpdate dto){
      return productRepository.findById(id)
              .map(p-> productRepository.save(dto.toModel(p)));
     }
- 
     public boolean deleteProduct(Long id){
         if(productRepository.existsById(id)){
          productRepository.deleteById(id);
@@ -41,5 +34,4 @@ public class ProductService {
         }
         return false;
     }
-
 }
