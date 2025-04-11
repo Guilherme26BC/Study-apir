@@ -1,12 +1,19 @@
-package com.github.acnaweb.study_apir.dto;
+package com.github.acnaweb.study_apir.dto.pedido;
+import com.github.acnaweb.study_apir.dto.item.ItemResponse;
+import com.github.acnaweb.study_apir.model.Itens;
 import com.github.acnaweb.study_apir.model.Pedido;
+
+import java.util.List;
+
 public class PedidoResponse {
     private Long id;
     private String status;
+    private List<ItemResponse> itens;
 
     public PedidoResponse toDto(Pedido pedido){
         this.setId(pedido.getId());
         this.setStatus(pedido.getStatus());
+
         return this;
     }
 
@@ -24,5 +31,13 @@ public class PedidoResponse {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<ItemResponse> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemResponse> itens) {
+        this.itens = itens;
     }
 }

@@ -1,7 +1,7 @@
 package com.github.acnaweb.study_apir.service;
 
-import com.github.acnaweb.study_apir.dto.PedidoRequestCreate;
-import com.github.acnaweb.study_apir.dto.PedidoRequestUpdate;
+import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
+import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestUpdate;
 import com.github.acnaweb.study_apir.model.Pedido;
 import com.github.acnaweb.study_apir.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

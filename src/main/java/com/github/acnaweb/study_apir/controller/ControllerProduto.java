@@ -3,7 +3,7 @@
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.github.acnaweb.study_apir.dto.ProdutoResponse;
+import com.github.acnaweb.study_apir.dto.produto.ProdutoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.acnaweb.study_apir.dto.ProdutoRequestCreate;
-import com.github.acnaweb.study_apir.dto.ProdutoRequestUpdate;
+import com.github.acnaweb.study_apir.dto.produto.ProdutoRequestCreate;
+import com.github.acnaweb.study_apir.dto.produto.ProdutoRequestUpdate;
 import com.github.acnaweb.study_apir.service.ProdutoService;
 
 @RestController

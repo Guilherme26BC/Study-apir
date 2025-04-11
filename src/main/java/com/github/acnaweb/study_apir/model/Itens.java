@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class Item {
+public class Itens {
 
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,7 +16,7 @@ public class Item {
    @ManyToOne
    private Produtos produtos;
 
-   private int quantidade;
+   private BigDecimal quantidade;
    private BigDecimal valor;
 
    public Long getItem_id() {
@@ -27,11 +27,11 @@ public class Item {
       this.item_id = item_id;
    }
 
-   public Pedido getOrder() {
+   public Pedido getPedido() {
       return pedido;
    }
 
-   public void setOrder(Pedido pedido) {
+   public void setPedido(Pedido pedido) {
       this.pedido = pedido;
    }
 
@@ -43,11 +43,11 @@ public class Item {
       this.produtos = produtos;
    }
 
-   public int getQuantidade() {
+   public BigDecimal getQuantidade() {
       return quantidade;
    }
 
-   public void setQuantidade(int quantidade) {
+   public void setQuantidade(BigDecimal quantidade) {
       this.quantidade = quantidade;
    }
 
