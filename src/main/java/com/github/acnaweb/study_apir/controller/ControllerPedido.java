@@ -58,4 +58,11 @@ public class ControllerPedido {
                 .map(new PedidoResponse()::toDto)
                 .map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("status/{status}")
+    public ResponseEntity<List<PedidoResponse>> findByStatus(@PathVariable String status){
+        return ResponseEntity.ok(pedidoService.findByStatus(status).stream()
+                .map(pedido -> new PedidoResponse().toDto(pedido))
+                .collect(Collectors.toList()));
+    }
 }

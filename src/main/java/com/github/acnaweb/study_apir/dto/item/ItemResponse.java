@@ -10,12 +10,11 @@ public class ItemResponse {
     private BigDecimal valor;
     private BigDecimal quantidade;
 
-    public ItemResponse toDto(Itens i){
-        this.setId(i.getItem_id());
-        this.setQuantidade(i.getQuantidade());
-        this.setValor(i.getValor());
-        this.setProduto_nome(i.getProduto().getNome());
-
+    public ItemResponse toDto(Itens item){
+        this.setId(item.getItem_id());
+        this.setValor(item.getValor());
+        this.setQuantidade(item.getQuantidade());
+        this.setProduto_nome(item.getProduto().getNome());
         return this;
     }
 

@@ -16,7 +16,7 @@ public class PedidoResponse {
         this.setStatus(pedido.getStatus());
 
         List<ItemResponse> itensResponse = pedido.getItems()
-                .stream().map(new ItemResponse()::toDto).collect(Collectors.toList());
+                .stream().map(item -> new ItemResponse().toDto(item)).collect(Collectors.toList());
 
         this.setItens(itensResponse);
         return this;

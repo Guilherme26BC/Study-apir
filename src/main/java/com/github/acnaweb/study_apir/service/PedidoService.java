@@ -48,9 +48,11 @@ public class PedidoService {
     public Optional<Pedido> buscarPedidoPorId(Long id){
         return pedidoRepository.findById(id);
     }
+
     public List<Pedido> buscarTodos(){
         return pedidoRepository.findAll();
     }
+
     public Optional<Pedido> atualizarPedido(Long id, PedidoRequestUpdate dto){
 
         return pedidoRepository.findById(id)
@@ -62,5 +64,8 @@ public class PedidoService {
         return true;
     }
         return false;
+    }
+    public List<Pedido> findByStatus(String status){
+        return pedidoRepository.findByStatus(status);
     }
 }
