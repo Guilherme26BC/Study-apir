@@ -11,8 +11,11 @@ public class Pedido {
     private Long id;
     private String status;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pedido",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private List<Itens> items;
+
     public Long getId() {
         return id;
     }

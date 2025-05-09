@@ -1,6 +1,8 @@
 package com.github.acnaweb.study_apir.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import java.math.BigDecimal;
 
@@ -12,9 +14,14 @@ public class Itens {
    private Long item_id;
 
    @ManyToOne
+   @Cascade(value = CascadeType.ALL)
+   @JoinColumn(name ="pedido_id")
    private Pedido pedido;
+
    @ManyToOne
-   private Produtos produtos;
+   @Cascade(value = CascadeType.ALL)
+   @JoinColumn(name ="produto_id")
+   private Produtos produto;
 
    private BigDecimal quantidade;
    private BigDecimal valor;
@@ -35,12 +42,12 @@ public class Itens {
       this.pedido = pedido;
    }
 
-   public Produtos getProduct() {
-      return produtos;
+   public Produtos getProduto() {
+      return produto;
    }
 
-   public void setProduct(Produtos produtos) {
-      this.produtos = produtos;
+   public void setProduto(Produtos produtos) {
+      this.produto = produtos;
    }
 
    public BigDecimal getQuantidade() {

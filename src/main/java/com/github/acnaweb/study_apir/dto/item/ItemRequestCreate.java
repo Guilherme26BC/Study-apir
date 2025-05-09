@@ -1,40 +1,29 @@
 package com.github.acnaweb.study_apir.dto.item;
 
-import com.github.acnaweb.study_apir.model.Itens;
-
 import java.math.BigDecimal;
-import java.util.List;
 
 public class ItemRequestCreate {
     private Long produto_id;
-    private BigDecimal quantidade;
     private BigDecimal valor;
+    private BigDecimal quantidade;
 
-    public Itens toModel(){
-        return null;
-    }
-
-    public Long getProduto() {
+    public Long getProduto_id() {
         return produto_id;
     }
-
-    public void setProduto(Long produto) {
-        this.produto_id = produto;
+    public void setProduto_id(Long produto_id) {
+        this.produto_id = produto_id;
     }
-
+    public BigDecimal getValor() {
+        return valor;
+    }
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
     public BigDecimal getQuantidade() {
         return quantidade;
     }
-
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
     }
 
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
 }
