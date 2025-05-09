@@ -19,7 +19,7 @@ public class Itens {
    private Pedido pedido;
 
    @ManyToOne
-   @Cascade(value = CascadeType.ALL)
+   @Cascade(value = CascadeType.ALL) //
    @JoinColumn(name ="produto_id")
    private Produtos produto;
 

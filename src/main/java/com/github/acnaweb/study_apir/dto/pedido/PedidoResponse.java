@@ -4,6 +4,7 @@ import com.github.acnaweb.study_apir.model.Itens;
 import com.github.acnaweb.study_apir.model.Pedido;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PedidoResponse {
     private Long id;
@@ -14,6 +15,10 @@ public class PedidoResponse {
         this.setId(pedido.getId());
         this.setStatus(pedido.getStatus());
 
+        List<ItemResponse> itensResponse = pedido.getItems()
+                .stream().map(new ItemResponse()::toDto).collect(Collectors.toList());
+
+        this.setItens(itensResponse);
         return this;
     }
 

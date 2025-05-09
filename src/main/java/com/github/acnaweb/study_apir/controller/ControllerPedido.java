@@ -1,5 +1,6 @@
 package com.github.acnaweb.study_apir.controller;
 
+import com.github.acnaweb.study_apir.dto.item.ItemResponse;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestUpdate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoResponse;
@@ -20,9 +21,9 @@ public class ControllerPedido {
     private PedidoService pedidoService;
 
     @PostMapping
-    public ResponseEntity<PedidoResponse> criar(@RequestBody PedidoRequestCreate dto){
-    Pedido pedido = pedidoService.criarPedido(dto);
-    return ResponseEntity.noContent().build();
+    public ResponseEntity<PedidoResponse> criar(@RequestBody PedidoRequestCreate dto) {
+
+    return ResponseEntity.ok().body(new PedidoResponse().toDto(pedidoService.criarPedido(dto)));
     }
 
     @DeleteMapping({"/{id}"})
@@ -34,7 +35,7 @@ public class ControllerPedido {
          }
     }
     @PutMapping("/{id}")
-    public ResponseEntity<PedidoResponse> atualziar(@PathVariable Long id, @RequestBody PedidoRequestUpdate dto){
+    public ResponseEntity<PedidoResponse> atualizar(@PathVariable Long id, @RequestBody PedidoRequestUpdate dto){
         return pedidoService.atualizarPedido(id, dto)
                 .map(orderUpdated ->  new PedidoResponse().toDto(orderUpdated))
                 .map(ResponseEntity::ok)

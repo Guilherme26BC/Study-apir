@@ -1,5 +1,10 @@
 package com.github.acnaweb.study_apir.dto.item;
 
+import com.github.acnaweb.study_apir.model.Itens;
+import com.github.acnaweb.study_apir.model.Pedido;
+import com.github.acnaweb.study_apir.model.Produtos;
+import com.github.acnaweb.study_apir.repository.ProdutoRepository;
+
 import java.math.BigDecimal;
 
 public class ItemRequestCreate {
@@ -7,6 +12,19 @@ public class ItemRequestCreate {
     private BigDecimal valor;
     private BigDecimal quantidade;
 
+    public Itens toModel(ProdutoRepository produtoRepository, Pedido pedido){
+        Itens item = new Itens();
+        Produtos produto = produtoRepository
+                .findById(this.getProduto_id())
+                .orElseThrow(() ->
+                        new RuntimeException("Produto inexistente: " + this.getProduto_id()));
+
+        item.setProduto(produto);
+        item.setValor(this.getValor());
+        item.setQuantidade(this.getQuantidade());
+        item.setPedido(pedido);
+        return  item;
+    }
     public Long getProduto_id() {
         return produto_id;
     }
