@@ -42,7 +42,7 @@ public class PedidoService {
                     item.setPedido(pedido);
                     return  item;
                 }).collect(Collectors.toList());
-    pedido.setItems(items);
+        pedido.setItems(items);
         return pedidoRepository.save(pedido);
     }
     public Optional<Pedido> buscarPedidoPorId(Long id){

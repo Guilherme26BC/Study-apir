@@ -22,7 +22,6 @@ public class ControllerPedido {
 
     @PostMapping
     public ResponseEntity<PedidoResponse> criar(@RequestBody PedidoRequestCreate dto) {
-
     return ResponseEntity.ok().body(new PedidoResponse().toDto(pedidoService.criarPedido(dto)));
     }
 
@@ -44,11 +43,9 @@ public class ControllerPedido {
 
     @GetMapping
     public ResponseEntity<List<PedidoResponse>> buscarTodos(){
-//        List<PedidoResponse> responses = pedidoService.buscarTodos().stream()
-//                .map(o-> new PedidoResponse().toDto(o))
-//                .collect(Collectors.toList());
-//        return ResponseEntity.ok(responses);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(pedidoService.buscarTodos().stream()
+                .map(new PedidoResponse()::toDto)
+                .collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
@@ -57,6 +54,8 @@ public class ControllerPedido {
 //             .map(orderGet-> new PedidoResponse().toDto(orderGet))
 //             .map(ResponseEntity::ok)
 //             .orElse(ResponseEntity.notFound().build());
-        return ResponseEntity.noContent().build();
+        return pedidoService.buscarPedidoPorId(id)
+                .map(new PedidoResponse()::toDto)
+                .map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 }

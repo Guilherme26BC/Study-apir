@@ -13,27 +13,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class PedidoRequestCreate {
     private List<ItemRequestCreate> items;
 
-    public Pedido toModel(ProdutoRepository produtoRepository){
-        Pedido pedido = new Pedido();
-        pedido.setStatus("Aberto");
-        //mapear os itens
-        List<Itens> items = this.getItens().stream()
-                .map(i -> { //lambda para transformar itemRequest em itens
-                    Itens item = new Itens();
-                    Produtos produto = produtoRepository
-                            .findById(i.getProduto_id())
-                            .orElseThrow(() ->
-                                    new RuntimeException("Produto inexistente: " + i.getProduto_id()));
-
-                    item.setProduto(produto);
-                    item.setValor(i.getValor());
-                    item.setQuantidade(i.getQuantidade());
-                    item.setPedido(pedido);
-                    return  item;
-                }).collect(Collectors.toList());
-        pedido.setItems(items);
-        return pedido;
-    }
+//    public Pedido toModel(ProdutoRepository produtoRepository){
+//        Pedido pedido = new Pedido();
+//        pedido.setStatus("Aberto");
+//        //mapear os itens
+//        List<Itens> items = this.getItens().stream()
+//                .map(i -> { //lambda para transformar itemRequest em itens
+//                    Itens item = new Itens();
+//                    Produtos produto = produtoRepository
+//                            .findById(i.getProduto_id())
+//                            .orElseThrow(() ->
+//                                    new RuntimeException("Produto inexistente: " + i.getProduto_id()));
+//
+//                    item.setProduto(produto);
+//                    item.setValor(i.getValor());
+//                    item.setQuantidade(i.getQuantidade());
+//                    item.setPedido(pedido);
+//                    return  item;
+//                }).collect(Collectors.toList());
+//        pedido.setItems(items);
+//        return pedido;
+//    }
 
     public List<ItemRequestCreate> getItens() {
         return items;
