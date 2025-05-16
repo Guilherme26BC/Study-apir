@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-public List<Pedido> findByStatus(String status);
+    //select p.* rom pedido p were p.status ='?' Script do findByStatus
+    public List<Pedido> findByStatus(String status);
 
 }

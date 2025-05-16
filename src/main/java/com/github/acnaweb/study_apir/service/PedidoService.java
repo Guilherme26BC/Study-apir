@@ -25,25 +25,7 @@ public class PedidoService {
     private ItemRepository itemRepository;
 
     public Pedido criarPedido(PedidoRequestCreate dto){
-        Pedido pedido = new Pedido();
-        pedido.setStatus("Aberto");
-        //mapear os itens
-        List<Itens> items = dto.getItens().stream()
-                .map(i -> { //lambda para transformar itemRequest em itens
-                    Itens item = new Itens();
-                    Produtos produto = produtoRepository
-                            .findById(i.getProduto_id())
-                            .orElseThrow(() ->
-                                    new RuntimeException("Produto inexistente: " + i.getProduto_id()));
-
-                    item.setProduto(produto);
-                    item.setValor(i.getValor());
-                    item.setQuantidade(i.getQuantidade());
-                    item.setPedido(pedido);
-                    return  item;
-                }).collect(Collectors.toList());
-        pedido.setItems(items);
-        return pedidoRepository.save(pedido);
+        return pedidoRepository.save(dto.toModel(produtoRepository));
     }
     public Optional<Pedido> buscarPedidoPorId(Long id){
         return pedidoRepository.findById(id);

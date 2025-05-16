@@ -10,7 +10,7 @@ public class ItemResponse {
     private BigDecimal valor;
     private BigDecimal quantidade;
 
-    public ItemResponse toDto(Itens item){
+    public ItemResponse toDto(Itens item) {
         this.setId(item.getItem_id());
         this.setValor(item.getValor());
         this.setQuantidade(item.getQuantidade());

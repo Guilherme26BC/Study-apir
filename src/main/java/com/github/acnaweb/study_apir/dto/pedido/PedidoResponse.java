@@ -11,14 +11,16 @@ public class PedidoResponse {
     private String status;
     private List<ItemResponse> itens;
 
-    public PedidoResponse toDto(Pedido pedido){
+    public PedidoResponse toDto(Pedido pedido) {
         this.setId(pedido.getId());
         this.setStatus(pedido.getStatus());
 
-        List<ItemResponse> itensResponse = pedido.getItems()
-                .stream().map(item -> new ItemResponse().toDto(item)).collect(Collectors.toList());
+        List<ItemResponse> items = pedido.getItems()
+                .stream()
+                .map(item -> new ItemResponse().toDto(item))
+                .collect(Collectors.toList());
 
-        this.setItens(itensResponse);
+        this.setItens(items);
         return this;
     }
 

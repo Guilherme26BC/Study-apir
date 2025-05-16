@@ -7,6 +7,7 @@ import com.github.acnaweb.study_apir.dto.pedido.PedidoResponse;
 import com.github.acnaweb.study_apir.model.Pedido;
 import com.github.acnaweb.study_apir.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,23 +45,20 @@ public class ControllerPedido {
     @GetMapping
     public ResponseEntity<List<PedidoResponse>> buscarTodos(){
         return ResponseEntity.ok(pedidoService.buscarTodos().stream()
-                .map(new PedidoResponse()::toDto)
+                .map(pedido -> new PedidoResponse().toDto(pedido))
                 .collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PedidoResponse> buscarPorId(@PathVariable Long id){
-//     return pedidoService.buscarPedidoPorId(id)
-//             .map(orderGet-> new PedidoResponse().toDto(orderGet))
-//             .map(ResponseEntity::ok)
-//             .orElse(ResponseEntity.notFound().build());
+
         return pedidoService.buscarPedidoPorId(id)
                 .map(new PedidoResponse()::toDto)
                 .map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
-
-    @GetMapping("status/{status}")
-    public ResponseEntity<List<PedidoResponse>> findByStatus(@PathVariable String status){
+    //Query parameter
+    @GetMapping("query")
+    public ResponseEntity<List<PedidoResponse>> findByStatus(String status){
         return ResponseEntity.ok(pedidoService.findByStatus(status).stream()
                 .map(pedido -> new PedidoResponse().toDto(pedido))
                 .collect(Collectors.toList()));
