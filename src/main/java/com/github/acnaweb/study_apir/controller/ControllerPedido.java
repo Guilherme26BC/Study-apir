@@ -5,6 +5,7 @@ import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestUpdate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoResponse;
 import com.github.acnaweb.study_apir.model.Pedido;
+import com.github.acnaweb.study_apir.model.PedidoStatus;
 import com.github.acnaweb.study_apir.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
@@ -58,7 +59,7 @@ public class ControllerPedido {
     }
     //Query parameter
     @GetMapping("query")
-    public ResponseEntity<List<PedidoResponse>> findByStatus(String status){
+    public ResponseEntity<List<PedidoResponse>> findByStatus(PedidoStatus status){
         return ResponseEntity.ok(pedidoService.findByStatus(status).stream()
                 .map(pedido -> new PedidoResponse().toDto(pedido))
                 .collect(Collectors.toList()));

@@ -2,6 +2,7 @@ package com.github.acnaweb.study_apir.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -9,8 +10,12 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private PedidoStatus status;
 
+    private LocalDate dataPedido;
+
+    private LocalDate dataEntrega;
     @OneToMany(mappedBy = "pedido",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -24,11 +29,11 @@ public class Pedido {
         this.id = id;
     }
 
-    public String getStatus() {
+    public PedidoStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(PedidoStatus status) {
         this.status = status;
     }
 
@@ -38,5 +43,21 @@ public class Pedido {
 
     public void setItems(List<Itens> items) {
         this.items = items;
+    }
+
+    public LocalDate getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(LocalDate dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
     }
 }

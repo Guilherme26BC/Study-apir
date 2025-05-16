@@ -4,6 +4,7 @@ import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestUpdate;
 import com.github.acnaweb.study_apir.model.Itens;
 import com.github.acnaweb.study_apir.model.Pedido;
+import com.github.acnaweb.study_apir.model.PedidoStatus;
 import com.github.acnaweb.study_apir.model.Produtos;
 import com.github.acnaweb.study_apir.repository.ItemRepository;
 import com.github.acnaweb.study_apir.repository.PedidoRepository;
@@ -47,7 +48,7 @@ public class PedidoService {
     }
         return false;
     }
-    public List<Pedido> findByStatus(String status){
+    public List<Pedido> findByStatus(PedidoStatus status){
         return pedidoRepository.findByStatus(status);
     }
 }
