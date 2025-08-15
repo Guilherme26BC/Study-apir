@@ -46,9 +46,11 @@ export $(cat .env | xargs)
 mvn clean package
 ```
 
-- Executar um JAR
+- Executar um JAR em /target
 ```
 java -jar target/study-apir-0.0.1-SNAPSHOT.jar
+java -jar target/study-apir-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=dev
+java -jar target/study-apir-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=prod
 ```
 
 *Configuração do Swagger
