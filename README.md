@@ -3,17 +3,6 @@ API Java para estudo de Spring boot
 
 ## Client DataBase
 
-## Variaveis de ambiente
-```
-export DB_USER=root
-export DB_PASSWORD=root_pwd
-```
-
-## .env
-```
-cat .env
-export $(cat .env | xargs)
-```
 ## MER
 ![Imagem_MER](assets/images/img.png)
 ## Docker
@@ -37,9 +26,29 @@ hub.docker.com
 ```
 ## Instalação
 
+## Variaveis de ambiente
+```
+export DB_USER=root
+export DB_PASSWORD=root_pwd
+export DB_SERVER=localhost
+export DB_PORT=3306
+export DB_DATABASE=devdv
+```
+
+## .env
+```
+cat .env
+export $(cat .env | xargs)
+```
+
 - Limpar e criar a pasta _/target_
 ```
 mvn clean package
+```
+
+- Executar um JAR
+```
+java -jar target/study-apir-0.0.1-SNAPSHOT.jar
 ```
 
 *Configuração do Swagger
