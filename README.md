@@ -3,6 +3,17 @@ API Java para estudo de Spring boot
 
 ## Client DataBase
 
+## Variaveis de ambiente
+```
+export DB_USER=root
+export DB_PASSWORD=root_pwd
+```
+
+## .env
+```
+cat .env
+export $(cat .env | xargs)
+```
 ## MER
 ![Imagem_MER](assets/images/img.png)
 ## Docker
@@ -49,6 +60,8 @@ server.port=9000
 
 ```   
 mvn spring-boot:run
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
+mvn spring-boot:run -Dspring-boot.run.profiles=prod
 ```
 
 ### Documentação da API (Swagger)
