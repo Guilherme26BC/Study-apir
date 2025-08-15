@@ -49,8 +49,8 @@ mvn clean package
 - Executar um JAR em /target
 ```
 java -jar target/study-apir-0.0.1-SNAPSHOT.jar
-java -jar target/study-apir-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=dev
-java -jar target/study-apir-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=prod
+java -jar -Dspring.profiles.active=dev target/study-apir-0.0.1-SNAPSHOT.jar 
+java -jar -Dspring.profiles.active=prod target/study-apir-0.0.1-SNAPSHOT.jar 
 ```
 
 *Configuração do Swagger
