@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("pedidos")
+@RequestMapping("/api/${api.version}/pedidos")
 public class ControllerPedido {
 
     @Autowired
