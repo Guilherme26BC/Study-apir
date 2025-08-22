@@ -20,7 +20,7 @@ import com.github.acnaweb.study_apir.dto.produto.ProdutoRequestUpdate;
 import com.github.acnaweb.study_apir.service.ProdutoService;
 
 @RestController
-@RequestMapping("produtos")
+@RequestMapping("/api/${api.version}/produtos")
 public class ControllerProduto {
     
     @Autowired
