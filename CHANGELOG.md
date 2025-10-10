@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/Guilherme26BC/Study-apir/compare/v1.0.0...v1.1.0) (2025-10-10)
+
+
+### Features
+
+* add pongx ([e0dde85](https://github.com/Guilherme26BC/Study-apir/commit/e0dde852373d823cc5a67c4ad7527c35bc6bf9ba))
+* update pongx2 ([4584052](https://github.com/Guilherme26BC/Study-apir/commit/4584052a06cea24b65acd676e5ee5b0c0fb55cd8))
+
+
+### Bug Fixes
+
+* remove endpoint info ([29cd11a](https://github.com/Guilherme26BC/Study-apir/commit/29cd11ad9c1439bfe4b11cdee5ebc989a4b058f0))
+
 ## 1.0.0 (2025-10-10)
 
 
