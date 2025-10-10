@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Guilherme26BC/Study-apir/compare/v1.1.0...v1.2.0) (2025-10-10)
+
+
+### Features
+
+* change return pong ([4a921fb](https://github.com/Guilherme26BC/Study-apir/commit/4a921fb086a5372e26aa335f824e685f2b999372))
+
 ## [1.1.0](https://github.com/Guilherme26BC/Study-apir/compare/v1.0.0...v1.1.0) (2025-10-10)
 
 
