@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Guilherme26BC/Study-apir/compare/v1.2.0...v1.2.1) (2025-10-10)
+
+
+### Bug Fixes
+
+* uppercase ([cc6376b](https://github.com/Guilherme26BC/Study-apir/commit/cc6376b6e898af83d01ed5117f5fc3548231c2bc))
+
 ## [1.2.0](https://github.com/Guilherme26BC/Study-apir/compare/v1.1.0...v1.2.0) (2025-10-10)
 
 
