@@ -1,4 +1,4 @@
-# Study APIr
+# Study APIR
 API Java para estudo de Spring boot
 
 ## Client DataBase
