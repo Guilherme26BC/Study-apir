@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/Guilherme26BC/Study-apir/compare/v1.2.1...v1.3.0) (2025-10-10)
+
+
+### Features
+
+* setup CI ([622f3f9](https://github.com/Guilherme26BC/Study-apir/commit/622f3f9317b123431bbf586723603d2b913af532))
+
+
+### Documentation
+
+* rename title ([5b545ff](https://github.com/Guilherme26BC/Study-apir/commit/5b545ff54d2fffb6f22d281e56850d5abc3bda31))
+
 ## [1.2.1](https://github.com/Guilherme26BC/Study-apir/compare/v1.2.0...v1.2.1) (2025-10-10)
 
 
