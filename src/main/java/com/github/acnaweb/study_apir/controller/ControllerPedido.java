@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class ControllerPedido {
 
     @Autowired
-    private PedidoService pedidoService
+    private PedidoService pedidoService;
 
     @PostMapping
     public ResponseEntity<PedidoResponse> criar(@RequestBody PedidoRequestCreate dto) {
