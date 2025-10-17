@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - feature/**
-      - release
-      - hotfix
+      - release/**
+      - hotfix/**
 
 jobs:
   build:
