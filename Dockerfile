@@ -1,8 +1,11 @@
-FROM maven:3.9.11-eclipse-temurin-17
-COPY . /opt/app
-
+FROM maven:3.9.11-eclipse-temurin-17 AS build
 WORKDIR /opt/app
+COPY . .
+RUN mvn clean package -DskipTests
 
-RUN mvn clean package
-CMD ["java", "-jar", "target/study-apir-0.0.1-SNAPSHOT.jar"]
+FROM eclipse-temurin:17-alpine-3.22
+RUN mkdir /opt/app
+COPY --from=build /opt/app/target/app.jar /opt/app/app.jar
+WORKDIR /opt/app
+CMD [ "java", "-jar", "app.jar"]
 
