@@ -17,5 +17,5 @@ jobs:
         run: mvn clean package
       - name: Execução de teste unitários
         run: mvn test
-      - name: Teste de Build da Imagem
+      - name: Teste Build da Imagem
         run: docker build -t study-apir .
