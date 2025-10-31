@@ -17,7 +17,9 @@ jobs:
           username: ${{ vars.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Testes integrados
-        run: ./server/run-integration-tests.sh 
+        run: 
+          docker compose up -d
+          ./server/run-integration-tests.sh 
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
