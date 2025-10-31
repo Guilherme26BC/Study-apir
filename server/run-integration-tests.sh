@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e #CASO QUALQUER ERRO ELE PARA O SCRIPT (EXIR !=0)
 
-sudo apt update
-sudo apt install -y jq
+#sudo apt update
+#sudo apt install -y jq
 #CRIAR PRODUTOS
 HTTP_STATUS=$(curl -X 'POST' \
         'http://localhost:9000/api/v3/produtos' \
@@ -33,3 +33,15 @@ if [ "$HTTP_STATUS" -ne 200 ]; then
     echo "ERRO ao processar dados da API de produtos"
     exit 1 
 fi
+
+HTTP_STATUS=$(curl -X 'GET' \
+    http://localhost:9000/api/v3/produtos/$PRODUTO_ID \
+    -w "%{http_code}"\
+    -H 'accept: /')
+echo "Status HTTP: $HTTP_STATUS"
+if [ "$HTTP_STATUS" -ne "200" ]; then 
+    echo "ERRO ao processar dados da API de produtos"
+    exit 1 
+fi
+
+
